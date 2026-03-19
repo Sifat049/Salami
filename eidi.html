@@ -7,124 +7,148 @@
 
 <style>
 body{
-font-family:'Poppins',sans-serif;
-background:radial-gradient(circle at top,#0f2027,#000);
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-margin:0;
-color:white;
-overflow:hidden;
+  font-family:'Poppins',sans-serif;
+  background:radial-gradient(circle at top,#0f2027,#000);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  margin:0;
+  color:white;
+  overflow:hidden;
 }
 
 /* Glass card */
 .container{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(25px);
-padding:25px;
-border-radius:20px;
-box-shadow:0 0 50px rgba(0,0,0,0.8);
-text-align:center;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(25px);
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 0 50px rgba(0,0,0,0.8);
+  text-align:center;
 }
 
 /* Animated title */
 .title{
-font-size:26px;
-font-weight:bold;
-background:linear-gradient(90deg,#ffd700,#ff00cc,#00f0ff);
-background-size:300%;
--webkit-background-clip:text;
-color:transparent;
-animation:shine 4s infinite linear;
+  font-size:26px;
+  font-weight:bold;
+  background:linear-gradient(90deg,#ffd700,#ff00cc,#00f0ff);
+  background-size:300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation:shine 4s infinite linear;
+  margin-bottom:10px;
+}
+
+/* Animated caption */
+.caption{
+  font-size:18px;
+  margin-bottom:20px;
+  background:linear-gradient(90deg,#ff00cc,#00f0ff,#ffd700);
+  background-size:300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color:transparent;
+  animation:shine 5s linear infinite;
 }
 
 @keyframes shine{
-0%{background-position:0%}
-100%{background-position:300%}
+  0%{background-position:0%}
+  100%{background-position:300%}
 }
 
 /* Wheel */
 .wheel{
-width:300px;
-border-radius:50%;
-border:4px solid rgba(255,255,255,0.2);
-box-shadow:0 0 40px rgba(0,255,255,0.2);
-transition: transform 5s cubic-bezier(.17,.67,.12,.99);
+  width:300px;
+  border-radius:50%;
+  border:4px solid rgba(255,255,255,0.2);
+  box-shadow:0 0 40px rgba(0,255,255,0.2);
+  transition: transform 5s cubic-bezier(.17,.67,.12,.99);
+  margin:0 auto;
 }
 
 .pointer{
-position:absolute;
-top:-15px;
-left:50%;
-transform:translateX(-50%);
-border-left:15px solid transparent;
-border-right:15px solid transparent;
-border-top:30px solid #00f0ff;
-filter:drop-shadow(0 0 10px #00f0ff);
+  position:absolute;
+  top:-15px;
+  left:50%;
+  transform:translateX(-50%);
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:30px solid #00f0ff;
+  filter:drop-shadow(0 0 10px #00f0ff);
 }
 
 /* Button */
 button{
-margin-top:20px;
-padding:12px 35px;
-border:none;
-border-radius:30px;
-background:linear-gradient(45deg,#00f0ff,#ff00cc);
-color:white;
-font-weight:bold;
-cursor:pointer;
-box-shadow:0 0 15px rgba(0,255,255,0.5);
+  margin-top:20px;
+  padding:12px 35px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#00f0ff,#ff00cc);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(0,255,255,0.5);
 }
 
 /* Modal */
 .modal{
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,0.9);
-justify-content:center;
-align-items:center;
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
 }
 
 .box{
-background:#111;
-padding:20px;
-border-radius:15px;
-width:260px;
-text-align:center;
-box-shadow:0 0 20px #00f0ff;
+  background:#111;
+  padding:20px;
+  border-radius:15px;
+  width:280px;
+  text-align:center;
+  box-shadow:0 0 20px #00f0ff;
 }
 
 /* bKash */
 .bkash{
-background:#e2136e;
-padding:15px;
-border-radius:10px;
-margin-top:10px;
+  background:#e2136e;
+  padding:15px;
+  border-radius:10px;
+  margin-top:10px;
+  color:white;
 }
 
 input{
-width:90%;
-padding:8px;
-margin-top:6px;
-border:none;
-border-radius:6px;
+  width:90%;
+  padding:8px;
+  margin-top:6px;
+  border:none;
+  border-radius:6px;
 }
 
-/* SMS */
+/* SMS animation */
 .sms{
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-background:#000;
-color:#0f0;
-padding:12px;
-border-radius:10px;
-display:none;
-box-shadow:0 0 15px #0f0;
+  position:fixed;
+  top:-60px; /* start hidden above */
+  left:50%;
+  transform:translateX(-50%);
+  background:#000;
+  color:#0f0;
+  padding:12px 20px;
+  border-radius:10px;
+  box-shadow:0 0 15px #0f0;
+  font-size:14px;
+  z-index:1000;
+}
+
+@keyframes smsSlideIn{
+  0%{ top:-60px; opacity:0; }
+  30%{ top:20px; opacity:1; }
+  70%{ top:20px; opacity:1; }
+  100%{ top:-60px; opacity:0; }
 }
 </style>
 </head>
@@ -133,127 +157,124 @@ box-shadow:0 0 15px #0f0;
 
 <div class="container">
 
-<div class="title">✨ Sifat's Eid Salami ✨</div>
+  <div class="title">✨ Sifat's Eid Salami ✨</div>
+  <div class="caption">Spin & see your Eid surprise! 💸🤲</div>
 
-<div style="position:relative;margin-top:20px;">
-<div class="pointer"></div>
+  <div style="position:relative;">
+    <div class="pointer"></div>
 
-<svg viewBox="-100 -100 200 200" class="wheel" id="wheel">
+    <svg viewBox="-100 -100 200 200" class="wheel" id="wheel">
+      <defs>
+        <linearGradient id="g1"><stop offset="0%" stop-color="#ff00cc"/><stop offset="100%" stop-color="#3333ff"/></linearGradient>
+        <linearGradient id="g2"><stop offset="0%" stop-color="#00f0ff"/><stop offset="100%" stop-color="#0066ff"/></linearGradient>
+        <linearGradient id="g3"><stop offset="0%" stop-color="#00ff99"/><stop offset="100%" stop-color="#00cc66"/></linearGradient>
+        <linearGradient id="g4"><stop offset="0%" stop-color="#ffcc00"/><stop offset="100%" stop-color="#ff6600"/></linearGradient>
+        <linearGradient id="g5"><stop offset="0%" stop-color="#ff0066"/><stop offset="100%" stop-color="#9900ff"/></linearGradient>
+        <linearGradient id="g6"><stop offset="0%" stop-color="#66ffff"/><stop offset="100%" stop-color="#0099ff"/></linearGradient>
+      </defs>
 
-<defs>
-<linearGradient id="g1"><stop offset="0%" stop-color="#ff00cc"/><stop offset="100%" stop-color="#3333ff"/></linearGradient>
-<linearGradient id="g2"><stop offset="0%" stop-color="#00f0ff"/><stop offset="100%" stop-color="#0066ff"/></linearGradient>
-<linearGradient id="g3"><stop offset="0%" stop-color="#00ff99"/><stop offset="100%" stop-color="#00cc66"/></linearGradient>
-<linearGradient id="g4"><stop offset="0%" stop-color="#ffcc00"/><stop offset="100%" stop-color="#ff6600"/></linearGradient>
-<linearGradient id="g5"><stop offset="0%" stop-color="#ff0066"/><stop offset="100%" stop-color="#9900ff"/></linearGradient>
-<linearGradient id="g6"><stop offset="0%" stop-color="#66ffff"/><stop offset="100%" stop-color="#0099ff"/></linearGradient>
-</defs>
+      <g>
+        <path d="M0,0 L0,-100 A100,100 0 0,1 86.6,-50 Z" fill="url(#g1)"/>
+        <path d="M0,0 L86.6,-50 A100,100 0 0,1 86.6,50 Z" fill="url(#g2)"/>
+        <path d="M0,0 L86.6,50 A100,100 0 0,1 0,100 Z" fill="url(#g3)"/>
+        <path d="M0,0 L0,100 A100,100 0 0,1 -86.6,50 Z" fill="url(#g4)"/>
+        <path d="M0,0 L-86.6,50 A100,100 0 0,1 -86.6,-50 Z" fill="url(#g5)"/>
+        <path d="M0,0 L-86.6,-50 A100,100 0 0,1 0,-100 Z" fill="url(#g6)"/>
+      </g>
 
-<g>
-<path d="M0,0 L0,-100 A100,100 0 0,1 86.6,-50 Z" fill="url(#g1)"/>
-<path d="M0,0 L86.6,-50 A100,100 0 0,1 86.6,50 Z" fill="url(#g2)"/>
-<path d="M0,0 L86.6,50 A100,100 0 0,1 0,100 Z" fill="url(#g3)"/>
-<path d="M0,0 L0,100 A100,100 0 0,1 -86.6,50 Z" fill="url(#g4)"/>
-<path d="M0,0 L-86.6,50 A100,100 0 0,1 -86.6,-50 Z" fill="url(#g5)"/>
-<path d="M0,0 L-86.6,-50 A100,100 0 0,1 0,-100 Z" fill="url(#g6)"/>
-</g>
+      <g font-size="13" font-weight="bold" text-anchor="middle" fill="#fff">
+        <text transform="rotate(30) translate(0,-70)">Dua 🤲✨</text>
+        <text transform="rotate(90) translate(0,-70)">2 tk</text>
+        <text transform="rotate(150) translate(0,-70)">5 tk</text>
+        <text transform="rotate(210) translate(0,-70)">10 tk</text>
+        <text transform="rotate(270) translate(0,-70)">50 tk</text>
+        <text transform="rotate(330) translate(0,-70)">100 tk</text>
+      </g>
 
-<g font-size="13" font-weight="bold" text-anchor="middle" fill="#fff">
-<text transform="rotate(30) translate(0,-70)">Dua 🤲✨</text>
-<text transform="rotate(90) translate(0,-70)">20 tk</text>
-<text transform="rotate(150) translate(0,-70)">50 tk</text>
-<text transform="rotate(210) translate(0,-70)">100 tk</text>
-<text transform="rotate(270) translate(0,-70)">500 tk</text>
-<text transform="rotate(330) translate(0,-70)">1000 tk</text>
-</g>
+    </svg>
+  </div>
 
-</svg>
-</div>
-
-<button onclick="spin()">SPIN 🔥</button>
+  <button onclick="spin()">SPIN 🔥</button>
 
 </div>
 
 <!-- modal -->
 <div class="modal" id="modal">
-<div class="box">
+  <div class="box">
 
-<h3 id="result"></h3>
+    <h3 id="result"></h3>
 
-<div id="bkash" class="bkash" style="display:none">
-<p>bKash Send Money</p>
-<input id="number" placeholder="Enter Number">
-<input id="amount" readonly>
-<button onclick="pay()">Send</button>
-<p id="status"></p>
-</div>
+    <div id="bkash" class="bkash" style="display:none">
+      <p>bKash Send Money</p>
+      <input id="number" placeholder="Enter Number">
+      <input id="amount" readonly>
+      <button onclick="pay()">Send</button>
+      <p id="status"></p>
+    </div>
 
-<button onclick="closeModal()">Close</button>
-</div>
+    <button onclick="closeModal()">Close</button>
+  </div>
 </div>
 
 <div class="sms" id="sms"></div>
 
 <script>
 let rot=0, spinning=false;
-const results=["Dua 🤲✨","20","50","100","500","1000"];
+const results=["Dua 🤲✨","2","5","10","50","100"];
 
 function spin(){
-if(spinning)return;
-spinning=true;
+  if(spinning) return;
+  spinning=true;
 
-let index=Math.floor(Math.random()*6);
-let finalDeg=(360-(index*60+30));
+  let index=Math.floor(Math.random()*6);
+  let finalDeg=(360-(index*60+30));
+  rot+=5*360+finalDeg;
 
-rot+=5*360+finalDeg;
+  document.getElementById("wheel").style.transform=`rotate(${rot}deg)`;
 
-document.getElementById("wheel").style.transform=`rotate(${rot}deg)`;
+  setTimeout(()=>{
+    let prize=results[index];
+    document.getElementById("result").innerText="You got: "+prize+(prize.includes("Dua")?"":" tk");
 
-setTimeout(()=>{
-let prize=results[index];
+    if(!prize.includes("Dua")){
+      document.getElementById("bkash").style.display="block";
+      document.getElementById("amount").value=prize+" tk";
+    }else{
+      document.getElementById("bkash").style.display="none";
+    }
 
-document.getElementById("result").innerText="You got: "+prize+(prize.includes("Dua")?"":" tk");
-
-if(!prize.includes("Dua")){
-document.getElementById("bkash").style.display="block";
-document.getElementById("amount").value=prize+" tk";
-}else{
-document.getElementById("bkash").style.display="none";
-}
-
-document.getElementById("modal").style.display="flex";
-spinning=false;
-
-},5000);
+    document.getElementById("modal").style.display="flex";
+    spinning=false;
+  },5000);
 }
 
 function pay(){
-let num=document.getElementById("number").value;
-let amount=document.getElementById("amount").value;
-let status=document.getElementById("status");
+  let num=document.getElementById("number").value;
+  let amount=document.getElementById("amount").value;
+  let status=document.getElementById("status");
 
-if(!num){
-status.innerText="Enter number!";
-return;
+  if(!num){
+    status.innerText="Enter number!";
+    return;
+  }
+
+  status.innerText="Processing...";
+
+  setTimeout(()=>{
+    status.innerText="✅ Sent";
+    showSMS(num,amount);
+  },2000);
 }
 
-status.innerText="Processing...";
-
-setTimeout(()=>{
-status.innerText="✅ Sent";
-showSMS(num,amount);
-},2000);
-}
-
+// animated fake SMS
 function showSMS(num,amount){
-let sms=document.getElementById("sms");
-sms.innerText=`bKash: ${amount} sent to ${num} 😈`;
-sms.style.display="block";
-setTimeout(()=>sms.style.display="none",4000);
+  let sms=document.getElementById("sms");
+  sms.innerText=`bKash: ${amount} sent to ${num} 😈`;
+  sms.style.animation="smsSlideIn 7s forwards";
 }
 
 function closeModal(){
-document.getElementById("modal").style.display="none";
+  document.getElementById("modal").style.display="none";
 }
 </script>
 

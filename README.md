@@ -1,11 +1,1 @@
-gf
-gfdh
-dfgh
-fghd
-fdgh
-dhf
-dfh
-dh
-gfdh
-gfdh
-hdfg
+gfd
